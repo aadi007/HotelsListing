@@ -8,6 +8,8 @@
 
 import UIKit
 import SDWebImage
+import Alamofire
+import SwiftyJSON
 
 class RestaurentsListViewController: UITableViewController {
 
@@ -22,6 +24,35 @@ class RestaurentsListViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        fetchHotelsData()
+    }
+    
+    func fetchHotelsData() {
+        Alamofire.request(Router.UtilRouteManager(UtilRouter.GetHotelsData())).responseJSON { ( response) in
+            if response.result.isSuccess {
+                let jsonObj = JSON(response.result.value!)
+                
+                if let resultDict = jsonObj["results"].dictionary {
+                    print("result Dict \(resultDict)")
+                    if let resultArray = resultDict["restaurants"]!.array {
+                        for subjson:JSON in resultArray {
+                            let restaurent = Restaurent(json: subjson)
+                            self.restaurentList.append(restaurent)
+                        }
+                    }
+                    if self.restaurentList.count > 0 {
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            self.tableView.reloadData()
+                        })
+                    }
+                } else {
+                    print("result Dict is empty")
+                }
+            }
+            else {
+                print("Error \(response.response?.statusCode) message \(response.response?.debugDescription) ")
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,6 +72,7 @@ class RestaurentsListViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! RestaurentViewCell
+        cell.selectionStyle = .None
         
         if let restaurent: Restaurent = restaurentList[indexPath.row] {
             if let name = restaurent.name {

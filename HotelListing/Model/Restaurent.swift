@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class Restaurent: NSObject {
     
@@ -14,11 +15,17 @@ class Restaurent: NSObject {
     var imageURl: String?
     var price: String?
     
-    init(restaurentName: String, restaurentPrice: String, restaurentImageURL: String ) {
+    init(json:JSON) {
         super.init()
-        self.name = restaurentName
-        self.price = restaurentPrice
-        self.imageURl = restaurentImageURL
+        if let URL = json["imageId"].string {
+            self.imageURl = URL
+        }
+        if let name = json["name"].string {
+            self.name = name
+        }
+        
+        if json["costForTwo"] != nil {
+            self.price = String(json["costForTwo"].intValue)
+        }
     }
-
 }

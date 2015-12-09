@@ -16,6 +16,8 @@
 		2171C81B1C17EA7400484050 /* RestaurentsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171C81A1C17EA7400484050 /* RestaurentsListViewController.swift */; };
 		2171C81D1C17EAAF00484050 /* RestaurentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171C81C1C17EAAF00484050 /* RestaurentViewCell.swift */; };
 		2171C8201C17ED0D00484050 /* Restaurent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171C81F1C17ED0D00484050 /* Restaurent.swift */; };
+		2171C82B1C17F11500484050 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171C8291C17F11500484050 /* Router.swift */; };
+		2171C82C1C17F11500484050 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171C82A1C17F11500484050 /* Util.swift */; };
 		65FCA54224439CBAD41E0A36 /* Pods_HotelListing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A09558D97C617A05C47048 /* Pods_HotelListing.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +55,8 @@
 		2171C81C1C17EAAF00484050 /* RestaurentViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurentViewCell.swift; path = Controller/RestaurentViewCell.swift; sourceTree = "<group>"; };
 		2171C81F1C17ED0D00484050 /* Restaurent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Restaurent.swift; path = Model/Restaurent.swift; sourceTree = "<group>"; };
 		2171C8211C17EE7B00484050 /* HotelListing-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HotelListing-Bridging-Header.h"; sourceTree = "<group>"; };
+		2171C8291C17F11500484050 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Router.swift; path = Router/Router.swift; sourceTree = "<group>"; };
+		2171C82A1C17F11500484050 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = Router/Util.swift; sourceTree = "<group>"; };
 		848D2D3E5572928DF1DDBCFC /* Pods-HotelListing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotelListing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HotelListing/Pods-HotelListing.debug.xcconfig"; sourceTree = "<group>"; };
 		B7A09558D97C617A05C47048 /* Pods_HotelListing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotelListing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5F526A716EF5981925F60BB /* Pods-HotelListing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotelListing.release.xcconfig"; path = "Pods/Target Support Files/Pods-HotelListing/Pods-HotelListing.release.xcconfig"; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 		2171C7EA1C17E6F800484050 /* HotelListing */ = {
 			isa = PBXGroup;
 			children = (
+				2171C8241C17F04900484050 /* Router */,
 				2171C81E1C17ECDC00484050 /* Model */,
 				2171C8191C17EA3C00484050 /* Controller */,
 				2171C7EB1C17E6F900484050 /* AppDelegate.swift */,
@@ -154,6 +159,15 @@
 				2171C81F1C17ED0D00484050 /* Restaurent.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		2171C8241C17F04900484050 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				2171C8291C17F11500484050 /* Router.swift */,
+				2171C82A1C17F11500484050 /* Util.swift */,
+			);
+			name = Router;
 			sourceTree = "<group>";
 		};
 		820917064CB79618886ED899 /* Frameworks */ = {
@@ -356,7 +370,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2171C8201C17ED0D00484050 /* Restaurent.swift in Sources */,
+				2171C82C1C17F11500484050 /* Util.swift in Sources */,
 				2171C81D1C17EAAF00484050 /* RestaurentViewCell.swift in Sources */,
+				2171C82B1C17F11500484050 /* Router.swift in Sources */,
 				2171C7EC1C17E6F900484050 /* AppDelegate.swift in Sources */,
 				2171C81B1C17EA7400484050 /* RestaurentsListViewController.swift in Sources */,
 			);
