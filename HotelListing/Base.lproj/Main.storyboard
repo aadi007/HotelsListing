@@ -22,7 +22,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="252"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ewG-p3-fJy">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="ewG-p3-fJy">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="176"/>
                                             <animations/>
                                             <constraints>
@@ -113,4 +113,7 @@
             <point key="canvasLocation" x="17" y="177"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="PlaceHolder" width="214" height="321"/>
+    </resources>
 </document>

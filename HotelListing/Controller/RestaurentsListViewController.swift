@@ -91,7 +91,7 @@ class RestaurentsListViewController: UITableViewController {
                 cell.priceLabel.text = price
             }
             if let url = restaurent.imageURl {
-                cell.showCaseImageView.sd_setImageWithURL(NSURL(string: url))
+                cell.showCaseImageView.sd_setImageWithURL(NSURL(string: url), placeholderImage:  UIImage(named: "PlaceHolder"))
             }
         }
         return cell
