@@ -15,6 +15,7 @@ class RestaurentsListViewController: UITableViewController {
 
     private let cellIdentifier = "RestaurentCellIdentifier"
     var restaurentList = [Restaurent]()
+    var busyIndicator = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +25,19 @@ class RestaurentsListViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        //initialize the activity indicator
+        busyIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
+        busyIndicator.center = self.view.center
+        self.view.addSubview(busyIndicator)
+        
         fetchHotelsData()
     }
     
     func fetchHotelsData() {
+        busyIndicator.startAnimating()
         Alamofire.request(Router.UtilRouteManager(UtilRouter.GetHotelsData())).responseJSON { ( response) in
             if response.result.isSuccess {
+                self.busyIndicator.stopAnimating()
                 let jsonObj = JSON(response.result.value!)
                 
                 if let resultDict = jsonObj["results"].dictionary {
@@ -50,6 +58,7 @@ class RestaurentsListViewController: UITableViewController {
                 }
             }
             else {
+                self.busyIndicator.stopAnimating()
                 print("Error \(response.response?.statusCode) message \(response.response?.debugDescription) ")
             }
         }
